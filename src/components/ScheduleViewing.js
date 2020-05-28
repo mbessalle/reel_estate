@@ -9,6 +9,7 @@ export default function ScheduleViewing() {
   const [Email, setEmail] = useState("");
   const [Phone, setPhone] = useState("");
   const [Date, setDate] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     fetch(
@@ -29,6 +30,7 @@ export default function ScheduleViewing() {
 
   const handleSubmit = (e) => {
     const address = ListingAddresses[addressID - 1].address;
+    setMessage("You have successfully submitted");
     e.preventDefault();
     // prettier-ignore
     console.log(`    Address:       ${address.street} ${address.number}, ${address.city}
@@ -102,10 +104,8 @@ export default function ScheduleViewing() {
           <br />
           <input type="submit" value="submit"></input>
         </form>
-        <div id="root"></div>
+            <h3>{message}</h3>
       </main>
     );
   }
 }
-
-
