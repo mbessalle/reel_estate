@@ -3,10 +3,10 @@ const express = require("express");
 const app = express();
 const port = 4000;
 
-app.get("/doctors", async (req, res) => {
+app.get("/listings", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/doctors"
+      "https://my-json-server.typicode.com/Codaisseur/listings-agents-data/listings"
     );
     res.send(response.data);
     console.log(response.data);
@@ -16,10 +16,10 @@ app.get("/doctors", async (req, res) => {
   res.end();
 });
 
-app.get("/patients", async (req, res) => {
+app.get("/agents", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients"
+      "https://my-json-server.typicode.com/Codaisseur/listings-agents-data/agents"
     );
     console.log(response.data);
     res.send(response.data);
@@ -29,27 +29,13 @@ app.get("/patients", async (req, res) => {
   res.end();
 });
 
-app.get("/patients", async (req, res) => {
+app.get("/agents/:language", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients"
+      `https://my-json-server.typicode.com/Codaisseur/listings-agents-data/agents/${req.params.language}`
     );
     console.log(response.data);
   } catch (error) {
-    console.error(error);
-  }
-  res.end();
-});
-
-app.get("/patients/:patientId", async (req, res) => {
-  try {
-    const response = await axios.get(
-      `https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients/${req.params.patientId}`
-    );
-    res.send(response.data);
-    console.log(response.data);
-  } catch (error) {
-    res.send(error);
     console.error(error);
   }
   res.end();
