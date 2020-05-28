@@ -8,17 +8,15 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "express": "^4.17.1",
+    "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-input-range": "^1.3.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.4"
-  },
   "scripts": {
-    "server-dev": "nodemon server.js",
+    "server-dev": "npx nodemon server.js",
     "server": "node server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -32,8 +32,15 @@ app.get("/agents", async (req, res) => {
 app.get("/agents/:language", async (req, res) => {
   try {
     const response = await axios.get(
-      `https://my-json-server.typicode.com/Codaisseur/listings-agents-data/agents/${req.params.language}`
+      `https://my-json-server.typicode.com/Codaisseur/listings-agents-data/agents/`
     );
+    const agents = response.data.filter((a) => {
+      return a.languages.includes(req.params.language);
+    });
+    console.log('agents:');
+    console.log(agents);
+    res.send(agents);
+    res.end();
     console.log(response.data);
   } catch (error) {
     console.error(error);
