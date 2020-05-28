@@ -1,14 +1,31 @@
 import React, { useState, useEffect } from "react";
+import InputRange from "react-input-range";
+import "react-input-range/lib/css/index.css";
 
-export default function Slider() {
+export default function Slider(props) {
+  const {
+    name,
+    value,
+    minValue,
+    maxValue,
+    lUp,
+    lLeft,
+    lRight,
+    stateSetter,
+  } = props.data;
   return (
-    <main>
-      <div>
-        <label htmlFor="points">max.budget: xeuros</label>
-        <input type="range" id="budget" min="0" max="10"></input>
-        <label htmlFor="points"> min. floor: euros</label>
-        <input type="range" id="floor" min="0" max="10"></input>
-      </div>
-    </main>
+    <div>
+      <label htmlFor={name}>{lUp}</label>
+      <br />
+      <label htmlFor={name}>{lLeft}</label>
+      <InputRange
+        name={name}
+        minValue={minValue}
+        maxValue={maxValue}
+        value={value}
+        onChange={(value) => stateSetter(value)}
+      />
+      <label htmlFor={name}>{lRight}</label>
+    </div>
   );
 }
