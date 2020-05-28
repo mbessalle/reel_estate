@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 export default function AboutUs() {
     return (
-        <div>AboutUs</div>
+        <main>
+        <h1>About Us</h1>
+        </main>
     )
 }
